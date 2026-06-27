@@ -11,9 +11,8 @@ arch:
   - armv7
   - i386
 options:
-  host: ""
   port: 2101
-  interval: 0.5
+  interval: 1.0
   lowpass: false
   logfile: ""
   influxdb_enabled: false
