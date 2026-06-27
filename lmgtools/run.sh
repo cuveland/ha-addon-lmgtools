@@ -1,5 +1,9 @@
 #!/usr/bin/with-contenv bashio
 
+# Unbuffer Python stdout so progress messages appear in the add-on log in
+# real time instead of being held back by block buffering.
+export PYTHONUNBUFFERED=1
+
 HOST=$(bashio::config 'host')
 PORT=$(bashio::config 'port')
 INTERVAL=$(bashio::config 'interval')

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.1
+
+- Show progress messages in the log in real time (unbuffered stdout), so
+  startup status is visible instead of being held back by block buffering.
+
 ## 1.4.0
 
 - Add automatic measurement ranging, enabled by default, so small currents and

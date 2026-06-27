@@ -1,6 +1,6 @@
 name: "LMG95 Power Logger"
 description: "Log ZES Zimmer LMG95 power measurements to InfluxDB and/or MQTT"
-version: "1.4.0"
+version: "1.4.1"
 slug: "lmgtools"
 url: "https://github.com/cuveland/ha-addon-lmgtools"
 init: false
