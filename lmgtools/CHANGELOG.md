@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0
+
+- Use Home Assistant MQTT service discovery: broker host, port, and
+  credentials are configured automatically (lmgtools v0.3.0).
+- Log the MQTT connection result so authentication problems are visible.
+- Remove the manual MQTT host/port options (now provided by the service).
+
 ## 1.2.0
 
 - Add InfluxDB username/password authentication (lmgtools v0.2.0).

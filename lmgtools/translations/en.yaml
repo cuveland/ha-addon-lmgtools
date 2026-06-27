@@ -34,6 +34,7 @@ configuration:
     name: MQTT
     description: >-
       Publish measurements via MQTT, including Home Assistant MQTT discovery so
-      sensors appear automatically. Enable it and set the broker host, port, and
-      base topic. Use core-mosquitto for the official Mosquitto add-on; state is
-      published to <topic>/state.
+      sensors appear automatically. The broker host, port, and credentials are
+      taken automatically from the Home Assistant MQTT integration, so you only
+      need to enable it and choose a base topic. State is published to
+      <topic>/state.

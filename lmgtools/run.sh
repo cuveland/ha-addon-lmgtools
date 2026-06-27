@@ -28,10 +28,19 @@ if bashio::config.true 'influxdb.enabled'; then
 fi
 
 if bashio::config.true 'mqtt.enabled'; then
-    MQTT_HOST=$(bashio::config 'mqtt.host')
-    MQTT_PORT=$(bashio::config 'mqtt.port')
-    MQTT_TOPIC=$(bashio::config 'mqtt.topic')
-    ARGS="${ARGS} --mqtt --mqtt-host ${MQTT_HOST} --mqtt-port ${MQTT_PORT} --mqtt-topic ${MQTT_TOPIC}"
+    if bashio::services.available mqtt; then
+        MQTT_HOST=$(bashio::services mqtt 'host')
+        MQTT_PORT=$(bashio::services mqtt 'port')
+        MQTT_USERNAME=$(bashio::services mqtt 'username')
+        MQTT_PASSWORD=$(bashio::services mqtt 'password')
+        MQTT_TOPIC=$(bashio::config 'mqtt.topic')
+        ARGS="${ARGS} --mqtt --mqtt-host ${MQTT_HOST} --mqtt-port ${MQTT_PORT} --mqtt-topic ${MQTT_TOPIC}"
+        if bashio::var.has_value "${MQTT_USERNAME}"; then
+            ARGS="${ARGS} --mqtt-username ${MQTT_USERNAME} --mqtt-password ${MQTT_PASSWORD}"
+        fi
+    else
+        bashio::log.warning "MQTT enabled but no MQTT service is available; skipping MQTT"
+    fi
 fi
 
 bashio::log.info "Starting LMG95 power logger for host ${HOST}"
