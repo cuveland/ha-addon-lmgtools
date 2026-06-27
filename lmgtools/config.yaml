@@ -2,6 +2,7 @@ name: "LMG95 Power Logger"
 description: "Log ZES Zimmer LMG95 power measurements to InfluxDB and/or MQTT"
 version: "1.0.0"
 slug: "lmgtools"
+url: "https://github.com/cuveland/ha-addon-lmgtools"
 init: false
 arch:
   - aarch64
@@ -25,15 +26,15 @@ options:
   mqtt_topic: "lmgtools"
 schema:
   host: str
-  port: int
-  interval: float
+  port: port
+  interval: float(0.05,)
   lowpass: bool
-  logfile: str
+  logfile: str?
   influxdb_enabled: bool
   influxdb_host: str
-  influxdb_port: int
+  influxdb_port: port
   influxdb_database: str
   mqtt_enabled: bool
   mqtt_host: str
-  mqtt_port: int
+  mqtt_port: port
   mqtt_topic: str

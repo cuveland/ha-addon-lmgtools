@@ -1,0 +1,56 @@
+configuration:
+  host:
+    name: Device host
+    description: >-
+      Hostname or IP address of the RS232-Ethernet converter connected to the
+      LMG95.
+  port:
+    name: Device port
+    description: TCP port of the RS232-Ethernet converter (raw TCP, usually 2101).
+  interval:
+    name: Measurement interval
+    description: >-
+      Time between measurements in seconds. The LMG95 rounds this to a whole
+      number of signal periods.
+  lowpass:
+    name: 60 Hz low-pass filter
+    description: >-
+      Enable the built-in low-pass filter, useful for suppressing
+      high-frequency noise on the measured signal.
+  logfile:
+    name: Log file
+    description: >-
+      Optional path to a file inside the add-on container where raw
+      measurements are written. Leave empty to disable file logging.
+  influxdb_enabled:
+    name: Enable InfluxDB
+    description: Write measurements to an InfluxDB 1.x database.
+  influxdb_host:
+    name: InfluxDB host
+    description: Hostname or IP address of the InfluxDB server.
+  influxdb_port:
+    name: InfluxDB port
+    description: TCP port of the InfluxDB server (default 8086).
+  influxdb_database:
+    name: InfluxDB database
+    description: >-
+      Name of the InfluxDB database to write to. It is created automatically if
+      it does not exist.
+  mqtt_enabled:
+    name: Enable MQTT
+    description: >-
+      Publish measurements via MQTT, including Home Assistant MQTT discovery so
+      sensors appear automatically.
+  mqtt_host:
+    name: MQTT broker host
+    description: >-
+      Hostname or IP address of the MQTT broker. Use core-mosquitto for the
+      official Mosquitto add-on.
+  mqtt_port:
+    name: MQTT broker port
+    description: TCP port of the MQTT broker (default 1883).
+  mqtt_topic:
+    name: MQTT base topic
+    description: >-
+      Base topic for published values. State is published to
+      <topic>/state.
