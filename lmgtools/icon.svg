@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="48" fill="#1565C0"/>
+  <!-- meter housing -->
+  <rect x="62" y="40" width="132" height="176" rx="20" fill="#FFFFFF"/>
+  <!-- display screen -->
+  <rect x="82" y="60" width="92" height="74" rx="10" fill="#1565C0"/>
+  <!-- lightning bolt on display -->
+  <g transform="translate(108,70) scale(1.8)">
+    <path d="M7,2V13H10V22L17,10H13L17,2H7Z" fill="#FFFFFF"/>
+  </g>
+  <!-- reading bars -->
+  <rect x="82" y="150" width="92" height="14" rx="7" fill="#1565C0"/>
+  <rect x="82" y="174" width="66" height="14" rx="7" fill="#1565C0"/>
+</svg>
