@@ -20,6 +20,11 @@ if bashio::config.true 'influxdb.enabled'; then
     INFLUXDB_PORT=$(bashio::config 'influxdb.port')
     INFLUXDB_DATABASE=$(bashio::config 'influxdb.database')
     ARGS="${ARGS} --influxdb --influxdb-host ${INFLUXDB_HOST} --influxdb-port ${INFLUXDB_PORT} --influxdb-database ${INFLUXDB_DATABASE}"
+    if bashio::config.has_value 'influxdb.username'; then
+        INFLUXDB_USERNAME=$(bashio::config 'influxdb.username')
+        INFLUXDB_PASSWORD=$(bashio::config 'influxdb.password')
+        ARGS="${ARGS} --influxdb-username ${INFLUXDB_USERNAME} --influxdb-password ${INFLUXDB_PASSWORD}"
+    fi
 fi
 
 if bashio::config.true 'mqtt.enabled'; then

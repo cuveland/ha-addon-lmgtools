@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+- Add InfluxDB username/password authentication (lmgtools v0.2.0).
+- Tolerate a write-only InfluxDB user that cannot create the database.
+
 ## 1.1.0
 
 - Group InfluxDB and MQTT options into nested config sections.
