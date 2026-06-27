@@ -17,7 +17,7 @@ options:
   logfile: ""
   influxdb:
     enabled: false
-    host: "localhost"
+    host: "a0d7b954-influxdb"
     port: 8086
     database: "powerlog"
   mqtt:

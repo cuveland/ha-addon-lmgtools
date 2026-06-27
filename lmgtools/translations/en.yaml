@@ -27,7 +27,8 @@ configuration:
     description: >-
       Write measurements to an InfluxDB 1.x database. Enable it and set the
       server host, port, and database name. The database is created
-      automatically if it does not exist.
+      automatically if it does not exist. For the Community Add-ons InfluxDB
+      add-on use host a0d7b954-influxdb.
   mqtt:
     name: MQTT
     description: >-
