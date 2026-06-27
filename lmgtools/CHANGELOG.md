@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1
+
+- Make device startup robust against leftover continuous-measurement data
+  from a previous session, which could desynchronize the protocol and crash
+  with an IndexError (lmgtools v0.4.0).
+
 ## 1.3.0
 
 - Use Home Assistant MQTT service discovery: broker host, port, and
