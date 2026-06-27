@@ -10,6 +10,12 @@ if bashio::config.true 'lowpass'; then
     ARGS="${ARGS} --lowpass"
 fi
 
+if ! bashio::config.true 'autorange'; then
+    CURRENT_RANGE=$(bashio::config 'current_range')
+    VOLTAGE_RANGE=$(bashio::config 'voltage_range')
+    ARGS="${ARGS} --current-range ${CURRENT_RANGE} --voltage-range ${VOLTAGE_RANGE}"
+fi
+
 if bashio::config.has_value 'logfile'; then
     LOGFILE=$(bashio::config 'logfile')
     ARGS="${ARGS} -L ${LOGFILE}"

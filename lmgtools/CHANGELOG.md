@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0
+
+- Add automatic measurement ranging, enabled by default, so small currents and
+  powers are captured (lmgtools v0.5.0). Disable it to set a fixed range.
+- Shut down cleanly on stop (SIGTERM): the device is released back to local
+  mode instead of being left in remote mode.
+- Stop spamming the log with the measurement counter when running headless.
+
 ## 1.3.1
 
 - Make device startup robust against leftover continuous-measurement data

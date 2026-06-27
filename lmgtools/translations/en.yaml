@@ -17,6 +17,23 @@ configuration:
     description: >-
       Enable the built-in low-pass filter, useful for suppressing
       high-frequency noise on the measured signal.
+  autorange:
+    name: Automatic ranging
+    description: >-
+      Let the LMG95 choose the measurement ranges automatically. Recommended for
+      home use so small currents and powers are captured. Disable for a fixed
+      range (reproducible measurements), then set the current and voltage range
+      below.
+  current_range:
+    name: Current range
+    description: >-
+      Fixed current range in amperes. Only used when automatic ranging is
+      disabled.
+  voltage_range:
+    name: Voltage range
+    description: >-
+      Fixed voltage range in volts. Only used when automatic ranging is
+      disabled.
   logfile:
     name: Log file
     description: >-
