@@ -2,7 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 RUN apk add --no-cache python3 py3-pip && \
-    pip3 install --no-cache-dir \
+    pip3 install --no-cache-dir --break-system-packages \
         https://github.com/cuveland/lmgtools/archive/refs/heads/master.tar.gz
 
 COPY run.sh /
