@@ -3,7 +3,6 @@
 HOST=$(bashio::config 'host')
 PORT=$(bashio::config 'port')
 INTERVAL=$(bashio::config 'interval')
-LOGFILE=$(bashio::config 'logfile')
 
 ARGS="${HOST} -p ${PORT} -i ${INTERVAL}"
 
@@ -11,21 +10,22 @@ if bashio::config.true 'lowpass'; then
     ARGS="${ARGS} --lowpass"
 fi
 
-if [ -n "${LOGFILE}" ]; then
+if bashio::config.has_value 'logfile'; then
+    LOGFILE=$(bashio::config 'logfile')
     ARGS="${ARGS} -L ${LOGFILE}"
 fi
 
-if bashio::config.true 'influxdb_enabled'; then
-    INFLUXDB_HOST=$(bashio::config 'influxdb_host')
-    INFLUXDB_PORT=$(bashio::config 'influxdb_port')
-    INFLUXDB_DATABASE=$(bashio::config 'influxdb_database')
+if bashio::config.true 'influxdb.enabled'; then
+    INFLUXDB_HOST=$(bashio::config 'influxdb.host')
+    INFLUXDB_PORT=$(bashio::config 'influxdb.port')
+    INFLUXDB_DATABASE=$(bashio::config 'influxdb.database')
     ARGS="${ARGS} --influxdb --influxdb-host ${INFLUXDB_HOST} --influxdb-port ${INFLUXDB_PORT} --influxdb-database ${INFLUXDB_DATABASE}"
 fi
 
-if bashio::config.true 'mqtt_enabled'; then
-    MQTT_HOST=$(bashio::config 'mqtt_host')
-    MQTT_PORT=$(bashio::config 'mqtt_port')
-    MQTT_TOPIC=$(bashio::config 'mqtt_topic')
+if bashio::config.true 'mqtt.enabled'; then
+    MQTT_HOST=$(bashio::config 'mqtt.host')
+    MQTT_PORT=$(bashio::config 'mqtt.port')
+    MQTT_TOPIC=$(bashio::config 'mqtt.topic')
     ARGS="${ARGS} --mqtt --mqtt-host ${MQTT_HOST} --mqtt-port ${MQTT_PORT} --mqtt-topic ${MQTT_TOPIC}"
 fi
 
